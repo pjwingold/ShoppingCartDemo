@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="au.com.pjwin.shoppingcartdemo.model.Product" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout style="@style/PagePadded">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/Text.Body"
+            android:text="@{product.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Product 1" />
+
+        <TextView
+            android:id="@+id/price"
+            style="@style/Text.Body"
+            android:text="@{product.priceDisplay}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="$100 " />
+
+        <NumberPicker
+            android:id="@+id/qty_picker"
+            style="@style/WrapContentLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <!--todo custom button-->
+        <!--<Button
+            android:id="@+id/cancel_button"
+            style="@style/WrapContentLayout"
+            android:layout_width="0dp"
+            android:paddingEnd="@dimen/content_spacing"
+            android:text="@string/button_cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ok_button"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/ok_button"
+            style="@style/WrapContentLayout"
+            android:layout_width="0dp"
+            android:text="@string/button_ok"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toEndOf="@id/cancel_button" />-->
+    </android.support.constraint.ConstraintLayout>
+</layout>

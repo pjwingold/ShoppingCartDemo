@@ -1,0 +1,88 @@
+{
+  "products" : [
+    {
+      "id" : "1",
+      "product_name" : "Nintendo Switch",
+      "description" : "Play your favourite games anytime, anywhere, with anyone, with Nintendo Switch",
+      "price" : "400",
+      "discount" : ""
+    },
+    {
+      "id" : "2",
+      "product_name" : "iPhone Xs Max",
+      "description" : "iPhone XS is everything you love about iPhone. Taken to the extreme",
+      "price" : "2000",
+      "discount" : ""
+    },
+    {
+      "id" : "3",
+      "product_name" : "Pixel 3 XL",
+      "description" : "Pixel 3 and Pixel 3 XL are everything you wish your phone could do. Brilliant camera, all day battery, and Google Assistant with a squeeze",
+      "price" : "1500",
+      "discount" : ""
+    },
+    {
+      "id" : "4",
+      "product_name" : "Sony Alpha 7 III R",
+      "description" : "Sony's latest A7 series cameras combine high resolution with high speed and professional performance",
+      "price" : "5000",
+      "discount" : ""
+    },
+    {
+      "id" : "5",
+      "product_name" : "Leica M10",
+      "description" : "When you take a photograph with a Leica M-System camera, you experience a different kind of photography",
+      "price" : "10300",
+      "discount" : ""
+    },
+    {
+      "id" : "6",
+      "product_name" : "Apple AirPods",
+      "description" : "With 24-hour battery life and groundbreaking ease of use and intelligence, AirPods are wireless headphones unlike any other",
+      "price" : "200",
+      "discount" : ""
+    },
+    {
+      "id" : "7",
+      "product_name" : "Sennheiser PXC550",
+      "description" : "Superior quality headphones with top level of comfort, deep sound and compactness",
+      "price" : "430",
+      "discount" : ""
+    },
+    {
+      "id" : "8",
+      "product_name" : "B&W PX",
+      "description" : "Great noise cancelling, bluetooth capabilities and sound quality",
+      "price" : "550",
+      "discount" : ""
+    },
+    {
+      "id" : "9",
+      "product_name" : "AudioQuest Nighthawk",
+      "description" : "Sophisticated bio-friendly Headphone with style, luxurious comfort and high uality sound.",
+      "price" : "1000",
+      "discount" : ""
+    },
+    {
+      "id" : "10",
+      "product_name" : "HHKB Pro 2",
+      "description" : "A movement, redefining what a professional keyboard",
+      "price" : "500",
+      "discount" : ""
+    },
+    {
+      "id" : "11",
+      "product_name" : "Ergodox EZ",
+      "description" : "An open-source keyboard for serious developers, gamers, and people who care deeply about their craft.",
+      "price" : "1350",
+      "discount" : ""
+    },
+    {
+      "id" : "12",
+      "product_name" : "X-Bows Ergonomic",
+      "description" : "Ergo mech keyboard that great for long days at work and intense gaming sessions",
+      "price" : "170",
+      "discount" : ""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="au.com.pjwin.shoppingcartdemo.model.Product" />
+    </data>
+
+    <LinearLayout style="@style/ContentPadded">
+
+        <!--<ImageView
+       todo product image
+            android:layout_width=""
+            android:layout_height="" />-->
+
+        <include
+            android:id="@+id/product_include"
+            layout="@layout/product_item"
+            app:product="@{product}" />
+
+        <View
+            style="@style/SectionSeparator" />
+
+        <TextView
+            android:id="@+id/product_desc"
+            style="@style/Text.Body"
+            android:layout_marginTop="@dimen/content_spacing"
+            android:text="@{product.desc}"
+            tools:text="Product Description" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cartItem"
+            type="au.com.pjwin.shoppingcartdemo.model.CartItem" />
+
+        <variable
+            name="lineTotal"
+            type="String" />
+
+        <variable
+            name="lineTotalDesc"
+            type="String" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout style="@style/ContentPadded">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/Text.Body"
+            android:text="@{cartItem.product.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Product 1" />
+
+        <TextView
+            android:id="@+id/line_total_label"
+            style="@style/Text.Body"
+            android:textAppearance="@style/TextAppearance.Bold"
+            android:text="@{lineTotal}"
+            app:layout_constraintEnd_toStartOf="@id/add_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="$(100)" />
+
+        <TextView
+            android:id="@+id/line_total_desc_label"
+            style="@style/Text.Body"
+            android:text="@{lineTotalDesc}"
+            app:layout_constraintEnd_toStartOf="@id/add_icon"
+            app:layout_constraintTop_toBottomOf="@id/line_total_label"
+            tools:text="$(100) x 2" />
+
+        <ImageView
+            android:id="@+id/add_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingStart="@dimen/content_spacing"
+            android:src="@drawable/ic_add_box"
+            android:tint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

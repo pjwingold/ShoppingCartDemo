@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quantity"
+            type="String" />
+    </data>
+
+    <TextView
+        android:id="@+id/badge"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="@dimen/content_spacing"
+        android:layout_marginTop="@dimen/content_spacing_small"
+        android:background="@drawable/circle_badge"
+        android:gravity="center"
+        android:text="@{quantity}"
+        android:textColor="@android:color/white"
+        tools:text="20" />
+</layout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ShoppingCartDemo</string>
+
+    <string name="bot_nav_product">Products</string>
+    <string name="bot_nav_cart">Cart</string>
+
+    <string name="button_cancel">Cancel</string>
+    <string name="button_ok">Ok</string>
+
+    <string name="cart_empty">Your cart is empty</string>
+    <string name="cart_total">Total</string>
+    <string name="cart_title">Cart Content</string>
+
+    <string name="product_detail_title">Product Details</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="totalQuantity"
+            type="int" />
+
+        <variable
+            name="totalCost"
+            type="String" />
+
+        <variable
+            name="adapter"
+            type="au.com.pjwin.shoppingcartdemo.ui.CartAdapter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout style="@style/PagePadded">
+
+        <TextView
+            android:id="@+id/cart_info"
+            style="@style/Text.Body"
+            android:text="@string/cart_empty"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibility="@{totalQuantity == 0}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cart_items"
+            style="@style/SectionLayout"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/content_spacing"
+            app:adapter="@{adapter}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_info"
+            app:layout_constraintVertical_weight="10" />
+
+        <TextView
+            android:id="@+id/total_label"
+            style="@style/Text.Body"
+            android:text="@string/cart_total"
+            android:textAppearance="@style/TextAppearance.Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_items" />
+
+        <TextView
+            android:id="@+id/total_value"
+            style="@style/Text.Body"
+            android:text="@{totalCost}"
+            android:textAppearance="@style/TextAppearance.Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_items"
+            tools:text="$200" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

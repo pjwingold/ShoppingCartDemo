@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="au.com.pjwin.shoppingcartdemo.ui.ProductAdapter" />
+
+    </data>
+
+    <LinearLayout style="@style/MatchParentLayout">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/product_list"
+            style="@style/MatchParentLayout"
+            android:orientation="vertical"
+            app:adapter="@{adapter}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    </LinearLayout>
+</layout>
