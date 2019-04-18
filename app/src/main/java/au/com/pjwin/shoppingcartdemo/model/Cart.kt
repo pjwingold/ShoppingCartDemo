@@ -64,7 +64,6 @@ class CartItem(
         }
 
     var lineTotal = BigDecimal(0)
-        //product.priceDecimal.multiply(BigDecimal(quantity))
         private set
 
     var lineTotalDisplay = ""
