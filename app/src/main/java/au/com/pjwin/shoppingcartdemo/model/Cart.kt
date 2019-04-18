@@ -75,5 +75,6 @@ class CartItem(
     private fun updateLineTotal() {
         lineTotal = product.priceDecimal.multiply(BigDecimal(quantity))
         lineTotalDisplay = String.format("$%S", lineTotal)
+        //todo add discount support
     }
 }

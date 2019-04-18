@@ -14,16 +14,22 @@ data class Product(
     val discount: String
 ) : Serializable {
 
-    var priceDecimal: BigDecimal = BigDecimal(0)
+    var priceDecimal = BigDecimal(0)
         private set
 
-    var priceDisplay: String = ""
+    var priceDisplay = ""
+        private set
+
+    var discountDecimal = BigDecimal(0)
         private set
 
     fun updatePrice() {
         try {
             priceDecimal = BigDecimal(price)
             priceDisplay = String.format("$%S", priceDecimal)
+            if (discount.isNotEmpty()) {
+                discountDecimal = BigDecimal(discount)
+            }
 
         } catch (e: NumberFormatException) {
         }
