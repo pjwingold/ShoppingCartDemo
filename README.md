@@ -23,9 +23,9 @@ RecylerView: to display data in a list
 
 Constraintlayout: flexible UI component arrangement
 
-Kotlin coroutine: multi requests handling
+Kotlin coroutine: google recommended for multi long running processes handling
 
-mockitok: powerful mocking library for kotlin unit test
+mockk: powerful mocking library for kotlin unit test
 
 todo: 
 cart content persistence to be added

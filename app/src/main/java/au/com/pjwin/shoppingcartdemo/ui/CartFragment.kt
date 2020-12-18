@@ -1,8 +1,8 @@
 package au.com.pjwin.shoppingcartdemo.ui
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import au.com.pjwin.commonlib.ui.BaseFragment
 import au.com.pjwin.shoppingcartdemo.R
@@ -43,7 +43,12 @@ class CartFragment :
 
         updateDisplay()
         binding.apply {
-            cartItems.addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            cartItems.addItemDecoration(
+                androidx.recyclerview.widget.DividerItemDecoration(
+                    context,
+                    androidx.recyclerview.widget.RecyclerView.VERTICAL
+                )
+            )
             adapter = cartAdapter
         }
     }

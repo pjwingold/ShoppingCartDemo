@@ -2,10 +2,10 @@ package au.com.pjwin.shoppingcartdemo.util
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.databinding.DataBindingUtil
-import android.support.design.internal.BottomNavigationItemView
-import android.support.design.internal.BottomNavigationMenuView
-import android.support.design.widget.BottomNavigationView
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.LayoutInflater
 import android.widget.TextView
 import au.com.pjwin.shoppingcartdemo.R

@@ -10,7 +10,7 @@
             type="au.com.pjwin.shoppingcartdemo.model.Product" />
     </data>
 
-    <android.support.constraint.ConstraintLayout style="@style/PagePadded">
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/PagePadded">
 
         <TextView
             android:id="@+id/name"
@@ -56,5 +56,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="5"
             app:layout_constraintStart_toEndOf="@id/cancel_button" />-->
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

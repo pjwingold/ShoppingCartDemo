@@ -18,7 +18,7 @@
             type="String" />
     </data>
 
-    <android.support.constraint.ConstraintLayout style="@style/ContentPadded">
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/ContentPadded">
 
         <TextView
             android:id="@+id/name"
@@ -52,11 +52,11 @@
             android:layout_height="50dp"
             android:paddingStart="@dimen/content_spacing"
             android:src="@drawable/ic_add_box"
-            android:tint="@color/colorPrimary"
+            app:tint="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

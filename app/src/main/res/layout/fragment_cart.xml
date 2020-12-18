@@ -18,7 +18,7 @@
             type="au.com.pjwin.shoppingcartdemo.ui.CartAdapter" />
     </data>
 
-    <android.support.constraint.ConstraintLayout style="@style/PagePadded">
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/PagePadded">
 
         <TextView
             android:id="@+id/cart_info"
@@ -29,13 +29,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:visibility="@{totalQuantity == 0}" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_items"
             style="@style/SectionLayout"
             android:orientation="vertical"
             android:paddingBottom="@dimen/content_spacing"
             app:adapter="@{adapter}"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cart_info"
             app:layout_constraintVertical_weight="10" />
@@ -57,5 +57,5 @@
             app:layout_constraintTop_toBottomOf="@id/cart_items"
             tools:text="$200" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

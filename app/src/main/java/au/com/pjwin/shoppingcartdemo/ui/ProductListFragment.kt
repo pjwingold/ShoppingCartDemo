@@ -1,11 +1,10 @@
 package au.com.pjwin.shoppingcartdemo.ui
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import androidx.navigation.findNavController
-import au.com.pjwin.commonlib.Common
 import au.com.pjwin.commonlib.ui.BaseFragment
 import au.com.pjwin.commonlib.ui.adapter.ListClickListener
 import au.com.pjwin.shoppingcartdemo.R
@@ -15,6 +14,7 @@ import au.com.pjwin.shoppingcartdemo.model.ProductResponse
 import au.com.pjwin.shoppingcartdemo.util.Util
 import au.com.pjwin.shoppingcartdemo.util.updateCartBadge
 import au.com.pjwin.shoppingcartdemo.viewmodel.ProductViewModel
+import com.google.android.gms.common.internal.service.Common
 
 class ProductListFragment :
     BaseFragment<ProductResponse, ProductViewModel, FragmentProductListBinding>() {
@@ -31,15 +31,20 @@ class ProductListFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         productList = listOf()
-        Common.uiHandler.post { viewModel.getProducts() }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getProducts()
 
         binding.productList.apply {
             setHasFixedSize(true)
-            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            addItemDecoration(
+                androidx.recyclerview.widget.DividerItemDecoration(
+                    context,
+                    androidx.recyclerview.widget.RecyclerView.VERTICAL
+                )
+            )
             productAdapter =
                 ProductAdapter(context, productList, object : ListClickListener<Product> {
                     override fun onClick(data: Product) {
