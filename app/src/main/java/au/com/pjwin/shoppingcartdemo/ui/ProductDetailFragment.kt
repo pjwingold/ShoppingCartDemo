@@ -14,6 +14,7 @@ import au.com.pjwin.shoppingcartdemo.viewmodel.ProductViewModel
 class ProductDetailFragment :
     BaseFragment<ProductResponse, ProductViewModel, FragmentProductDetailBinding>() {
 
+    //todo add navarg
     override fun layoutId() = R.layout.fragment_product_detail
 
     override fun pageTitle() = R.string.product_detail_title
@@ -31,7 +32,7 @@ class ProductDetailFragment :
             binding.product = it
 
             binding.productInclude.addIcon.setOnClickListener {
-                Util.openCartUpdateDialog(activity!!, product) { qty ->
+                Util.openCartUpdateDialog(requireActivity(), product) { qty ->
                     viewModel.updateCart(product, qty)
                     getBottomNavView()?.updateCartBadge(viewModel.getTotalQuantity())
                 }

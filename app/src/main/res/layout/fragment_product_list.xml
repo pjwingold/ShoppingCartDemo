@@ -11,10 +11,10 @@
     </data>
 
     <LinearLayout style="@style/MatchParentLayout">
-
+<!--todo scroll not working -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/product_list"
-            style="@style/MatchParentLayout"
+            style="@style/SectionLayout"
             android:orientation="vertical"
             app:adapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

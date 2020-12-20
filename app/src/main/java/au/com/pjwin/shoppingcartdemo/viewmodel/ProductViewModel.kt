@@ -28,9 +28,6 @@ class ProductViewModel : DataViewModel<ProductResponse>() {
             if (isActive) {
                 onData(response)
                 productList = response?.products
-                productList?.forEach {
-                    it.updatePrice()
-                }
             }
         }
     }

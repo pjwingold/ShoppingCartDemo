@@ -28,9 +28,9 @@ class CartFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         cartList = listOf()
-        cartAdapter = CartAdapter(context!!, cartList) {
+        cartAdapter = CartAdapter(requireContext(), cartList) {
             val product = it.product
-            Util.openCartUpdateDialog(activity!!, product) { qty ->
+            Util.openCartUpdateDialog(requireActivity(), product) { qty ->
                 viewModel.updateCart(product, qty)
                 updateDisplay()
                 getBottomNavView()?.updateCartBadge(viewModel.getTotalQuantity())

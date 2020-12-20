@@ -8,7 +8,6 @@ import io.mockk.runs
 import io.mockk.spyk
 import io.mockk.verify
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
@@ -17,7 +16,6 @@ import java.math.BigDecimal
 class ProductViewModelTest : ShoppingCartBaseTest() {
 
     //Spyk has to be read/writable, cannot be val
-    //@SpyK
     private var viewModel = spyk<ProductViewModel>(recordPrivateCalls = true)
 
     @Before
@@ -27,59 +25,45 @@ class ProductViewModelTest : ShoppingCartBaseTest() {
     }
 
     @Test
-    fun testGetProducts() {
+    fun `test Get Products`() {
         viewModel.getProducts()
-
         verify(exactly = 1) { viewModel.onData(any()) }
+
+        var product: Product? = viewModel.findProductById(1)
+        assertEquals(product!!.id, 1)
+        product = viewModel.findProductById(5)
+        assertEquals(product!!.name, "Leica M10")
+        assertNull(viewModel.findProductById(13))
     }
 
     @Test
-    fun testUpdateCart() {
+    fun `test Update Cart`() {
         val product1 = Product(1, "pro 1", "desc 1", "100", "")
-        val product2 = Product(2, "pro 1", "desc 1", "200", "")
+        val product2 = Product(2, "pro 2", "desc 2", "200", "")
+        val product3 = Product(3, "pro 3", "desc 3", "300", "")
 
         viewModel.updateCart(product1, 1)
         viewModel.updateCart(product2, 2)
-        assertEquals(viewModel.getTotalQuantity(), 3)
-        assertEquals(viewModel.getTotalCost(), BigDecimal(500))
+        assertEquals(3, viewModel.getTotalQuantity())
+        assertEquals(BigDecimal(500), viewModel.getTotalCost())//100+400
+
+        viewModel.updateCart(product3, 4)//3+4
+        assertEquals(7, viewModel.getTotalQuantity())
+        assertEquals(viewModel.getTotalCost(), BigDecimal(1700))//1200+500
 
         viewModel.updateCart(product2, 0)
-        assertEquals(viewModel.getTotalQuantity(), 1)
-        assertEquals(viewModel.getTotalCost(), BigDecimal(100))
+        assertEquals(viewModel.getTotalQuantity(), 5)//7-2
+        assertEquals(viewModel.getTotalCost(), BigDecimal(1300))//1700-400
 
         viewModel.updateCart(product2, 10)
         viewModel.updateCart(product2, 3)
-        assertEquals(viewModel.getTotalQuantity(), 4)
-        assertEquals(viewModel.getTotalCost(), BigDecimal(700))
+        assertEquals(viewModel.getTotalQuantity(), 8)//5+3
+        assertEquals(viewModel.getTotalCost(), BigDecimal(1900))//1300+600
 
         viewModel.updateCart(product1, 0)
         viewModel.updateCart(product2, 0)
+        viewModel.updateCart(product3, 0)
         assertEquals(viewModel.getTotalQuantity(), 0)
         assertEquals(viewModel.getTotalCost(), BigDecimal(0))
-    }
-
-    //todo fix every { }
-    //@Test
-    fun testFindProductById() {
-        val list = mutableListOf<Product>()
-        list.add(Product(1, "pro 1", "desc 1", "100", ""))
-        list.add(Product(2, "pro 2", "desc 2", "100", ""))
-        list.add(Product(3, "pro 3", "desc 3", "100", ""))
-        list.add(Product(4, "pro 4", "desc 4", "100", ""))
-        list.add(Product(5, "pro 5", "desc 5", "100", ""))
-
-        every { viewModel.productList } answers {
-            fieldValue = list
-            list
-        }
-        //viewModel.productList = list
-        viewModel.findProductById(3)
-        assertNotNull(viewModel.findProductById(1))
-        assertNotNull(viewModel.findProductById(5))
-        assertNull(viewModel.findProductById(6))
-        /*verify {
-            viewModel.findProductById(any())
-        }*/
-
     }
 }

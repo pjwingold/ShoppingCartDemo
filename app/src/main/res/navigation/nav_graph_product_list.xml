@@ -26,10 +26,9 @@
     <fragment
         android:id="@+id/productDetail"
         android:name="au.com.pjwin.shoppingcartdemo.ui.ProductDetailFragment"
-        android:label="ProductDetailFragment" >
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="lifeatoptus://care4me" />
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail">
+
     </fragment>
 
     <!--<fragment

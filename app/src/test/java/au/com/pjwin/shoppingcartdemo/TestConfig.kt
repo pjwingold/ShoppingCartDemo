@@ -1,4 +1,4 @@
-package au.com.pjwin.shoppingcartdemo.util
+package au.com.pjwin.shoppingcartdemo
 
 import androidx.annotation.VisibleForTesting
 import au.com.pjwin.commonlib.Common

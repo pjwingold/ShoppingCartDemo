@@ -1,10 +1,10 @@
 package au.com.pjwin.shoppingcartdemo.ui
 
 import android.os.Bundle
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import au.com.pjwin.commonlib.ui.BaseFragment
 import au.com.pjwin.commonlib.ui.adapter.ListClickListener
 import au.com.pjwin.shoppingcartdemo.R
@@ -14,7 +14,6 @@ import au.com.pjwin.shoppingcartdemo.model.ProductResponse
 import au.com.pjwin.shoppingcartdemo.util.Util
 import au.com.pjwin.shoppingcartdemo.util.updateCartBadge
 import au.com.pjwin.shoppingcartdemo.viewmodel.ProductViewModel
-import com.google.android.gms.common.internal.service.Common
 
 class ProductListFragment :
     BaseFragment<ProductResponse, ProductViewModel, FragmentProductListBinding>() {
@@ -40,27 +39,28 @@ class ProductListFragment :
         binding.productList.apply {
             setHasFixedSize(true)
             addItemDecoration(
-                androidx.recyclerview.widget.DividerItemDecoration(
+                DividerItemDecoration(
                     context,
-                    androidx.recyclerview.widget.RecyclerView.VERTICAL
+                    RecyclerView.VERTICAL
                 )
             )
             productAdapter =
-                ProductAdapter(context, productList, object : ListClickListener<Product> {
-                    override fun onClick(data: Product) {
-                        findNavController().navigate(
-                            R.id.productDetail,
-                            ProductListFragmentArgs.Builder(data).build().toBundle()
-                        )
-                    }
-                }) { product ->
-                    Util.openCartUpdateDialog(activity!!, product) { qty ->
+                ProductAdapter(context, productList,
+                    object : ListClickListener<Product> {
+                        override fun onClick(data: Product) {
+                            findNavController().navigate(
+                                R.id.productDetail,
+                                ProductListFragmentArgs.Builder(data).build().toBundle()
+                            )
+                        }
+                    }) { product ->
+                    Util.openCartUpdateDialog(requireActivity(), product) { qty ->
                         viewModel.updateCart(product, qty)
                         getBottomNavView()?.updateCartBadge(viewModel.getTotalQuantity())
                     }
                 }
 
-            binding.adapter = productAdapter
+            adapter = productAdapter
         }
     }
 

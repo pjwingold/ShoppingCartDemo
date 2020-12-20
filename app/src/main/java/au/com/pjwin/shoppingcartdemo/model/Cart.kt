@@ -1,6 +1,7 @@
 package au.com.pjwin.shoppingcartdemo.model
 
 import android.util.SparseArray
+import androidx.core.util.forEach
 import java.math.BigDecimal
 
 data class Cart(private var cartItems: SparseArray<CartItem>) {
@@ -34,21 +35,19 @@ data class Cart(private var cartItems: SparseArray<CartItem>) {
 
     fun getTotalQuantity(): Int {
         var total = 0
-        val size = cartItems.size()
-        for (i in 0 until size) {
-            total += cartItems.valueAt(i).quantity
+        cartItems.forEach { _, item ->
+            println("item ${item.product} qty ${item.quantity}")
+            total += item.quantity
         }
-
         return total
     }
 
     fun getTotalCost(): BigDecimal {
         var total = BigDecimal(0)
-        val size = cartItems.size()
-        for (i in 0 until size) {
-            val cartItem = cartItems.valueAt(i)
-            total = total.add(cartItem.product.priceDecimal.multiply(BigDecimal(cartItem.quantity)))
+        cartItems.forEach { _, item ->
+            total = total.add(item.product.priceDecimal.multiply(item.quantity.toBigDecimal()))
         }
+
         return total
     }
 }

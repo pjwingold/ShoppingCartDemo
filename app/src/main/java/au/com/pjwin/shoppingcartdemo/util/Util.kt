@@ -44,24 +44,31 @@ object Util {
     }
 }
 
+//todo separate file
 fun BottomNavigationView.updateCartBadge(quantity: Int) {
     val menuView: BottomNavigationMenuView = getChildAt(0) as BottomNavigationMenuView
     val itemView: BottomNavigationItemView = menuView.getChildAt(1) as BottomNavigationItemView
+    val badgeView = itemView.findViewById<TextView>(R.id.badge)
 
     if (quantity == 0) {
-        val badgeView = itemView.findViewById<TextView>(R.id.badge)
         if (badgeView != null) {
             itemView.removeView(badgeView)
         }
 
     } else {
-        val binding = DataBindingUtil.inflate<BadgeLayoutBinding>(
-            LayoutInflater.from(context),
-            R.layout.badge_layout,
-            itemView,
-            false
-        )
-        binding.quantity = quantity.toString()
-        itemView.addView(binding.root)
+        if (badgeView == null) {
+            val binding =
+                DataBindingUtil.inflate<BadgeLayoutBinding>(
+                    LayoutInflater.from(context),
+                    R.layout.badge_layout,
+                    itemView,
+                    false
+                )
+            binding.quantity = quantity.toString()
+            itemView.addView(binding.root)
+
+        } else {
+            badgeView.text = quantity.toString()
+        }
     }
 }

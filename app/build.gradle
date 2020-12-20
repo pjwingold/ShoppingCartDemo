@@ -42,8 +42,16 @@ android {
     }
 
     sourceSets {
+        main {
+            java.srcDirs = [
+                    'src/main/java',
+                    "${project(':common').projectDir}/src/main/java"//need this to remove compile error
+            ]
+        }
         test {
-            java.srcDirs += ["${project(':common').projectDir}/src/test/java"]
+            java.srcDirs += ['src/test/java',
+                             "${project(':common').projectDir}/src/test/java"
+            ]
         }
     }
 
@@ -55,6 +63,10 @@ android {
             returnDefaultValues = true
             includeAndroidResources = true
         }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
